@@ -27,5 +27,37 @@
             $stmt->close();
             $con->close();
         }
+        public function delete(){
+            $con = DB::db_con();
+
+            $stmt = $con->prepare('DELETE FROM tbl_info WHERE id=?');
+            $stmt->bind_param('i',$id);
+
+            $id = $this->id;
+
+            $stmt->execute();
+            
+            return 1;
+            
+            $stmt->close();
+            $con->close();
+        }
+        public function update(){
+            $con = DB::db_con();
+
+            $stmt = $con->prepare('UPDATE tbl_info SET firstname=?, middlename=?, lastname=?, position=?, company=?, updated_at=? WHERE id=?');
+            $stmt->bind_param('ssssssi',$fname,$mname,$lname,$pos,$date,$id);
+
+            $fname = $this->firstname;
+            $mname = $this->middlename;
+            $lname = $this->lastname;
+            $pos = $this->position;
+            $date = $this->updated_at;
+
+
+            $stmt->execute();
+
+            return
+        }
     }
 ?>
