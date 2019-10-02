@@ -1,8 +1,8 @@
 <?php
     require_once('tblInfo.php');
 
-    $data = new TblInfo;
+    $infos = new TblInfo;
 
-    $data = $data->show();
-    echo json_encode($data);
+    $infos = $infos->show();
+    echo json_encode($infos);
 ?>
